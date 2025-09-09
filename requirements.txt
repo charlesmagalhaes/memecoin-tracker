@@ -1,0 +1,6 @@
+gspread
+oauth2client
+requests
+pandas
+yfinance
+matplotlib
