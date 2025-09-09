@@ -30,7 +30,7 @@ def get_prices():
 def save_price(coin, price, change):
     sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), coin, price, change])
 
-THRESHOLD = 10
+THRESHOLD = 1
 
 data = get_prices()
 for coin, info in data.items():
