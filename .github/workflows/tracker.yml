@@ -1,9 +1,7 @@
-name: Run Tracker
+name: Run Tracker - Teste Rápido
 
 on:
-  schedule:
-    - cron: "* * * * *"  # roda a cada minuto
-  workflow_dispatch:     # ainda permite rodar manualmente
+  workflow_dispatch:  # Permite rodar manualmente
 
 jobs:
   build:
@@ -20,9 +18,15 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run script
+      - name: Run script multiple times
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python main.py
+        run: |
+          for i in {1..5}; do
+            echo "Execução $i"
+            python main.py
+            sleep 60  # espera 1 minuto entre execuções
+          done
+
