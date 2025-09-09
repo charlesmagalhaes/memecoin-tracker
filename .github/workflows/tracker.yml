@@ -2,8 +2,8 @@ name: Run Tracker
 
 on:
   schedule:
-    - cron: "*/1 * * * *"  # a cada 15 minutos
-  workflow_dispatch:         # permite rodar manualmente
+    - cron: "* * * * *"  # roda a cada minuto
+  workflow_dispatch:     # ainda permite rodar manualmente
 
 jobs:
   build:
